@@ -15,16 +15,9 @@ class GameViewController: UIViewController {
     var fruitsToGuessShuffled = [String]()
     var fruitsToGuessNumber = 0
 	var totalButtonPresses = 0
-    var totalWins = 0 {
-        didSet {
-            newRound()
-        }
-    }
-    var highScore = 0 {
-        didSet {
-            newRound()
-        }
-    }
+	var totalWins = 0
+    var highScore = 0
+		
     
     // IB variable
     @IBOutlet var currentGameScoreLabel: UILabel!
@@ -60,8 +53,7 @@ class GameViewController: UIViewController {
 
         // initiate a new round
         newRound()
-        
-	}
+}
 
 
 
@@ -77,7 +69,7 @@ class GameViewController: UIViewController {
     	
     // function: update interface
     func updateUI() {
-
+		
 		// if there are fruits remaining
 		if totalButtonPresses < fruitsToGuess.count {
 
@@ -127,6 +119,7 @@ class GameViewController: UIViewController {
 		// check if the passed string matches the question
 		if fruitsToGuessShuffled[fruitsToGuessNumber] == userGuessedWord {
 
+			
 			// add to the current score
 			totalWins += 1
 		}
