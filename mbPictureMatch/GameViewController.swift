@@ -19,11 +19,17 @@ class GameViewController: UIViewController {
             newRound()
         }
     }
+    var highScore = 0 {
+        didSet {
+            newRound()
+        }
+    }
     
     var currentGame: GuessingGame! // ! is to allow empty values on load
     
     // IB variable
     @IBOutlet var currentGameScoreLabel: UILabel!
+    @IBOutlet var highScoreLabel: UILabel!
     @IBOutlet var wordToGuessLabel: UILabel!
     @IBOutlet var buttonCollection: [UIButton]!
 
@@ -33,10 +39,11 @@ class GameViewController: UIViewController {
         // disable on tap
         sender.isEnabled = false
         
-        // change the opacity of the button
-        if sender.isEnabled == false {
-            sender.alpha = 0.5
-        }
+        // get the button title
+        let buttonImageTitle = sender.currentTitle!
+        
+        // pass the guess to the struct
+        currentGame.playerGuess( userGuessedWord: "\(buttonImageTitle)" )
 
         // check the win-lose staus
         updateGameState()
@@ -46,10 +53,10 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
         
         // initiate new round
         newRound()
+        
 	}
 
 
@@ -58,18 +65,19 @@ class GameViewController: UIViewController {
     func newRound() {
         
         // if there are fruits remaining
-        if !fruitsToGuess.isEmpty {
+//        if !fruitsToGuessShuffled.isEmpty {
+        if totalWins <= 6 {
 
             // shuffle the fruit names
             fruitsToGuessShuffled = shuffleArray(stringArray: fruitsToGuess)
-            
+
             // add the fruit name to the label based off array key
-            wordToGuessLabel.text = fruitsToGuessShuffled[fruitsToGuessNumber]
+            let currentFruit = fruitsToGuessShuffled[fruitsToGuessNumber]
+            wordToGuessLabel.text = currentFruit
 
-            
             // start with a new word, guessed fruits, and the player score
-            currentGame = GuessingGame(wordToGuess: fruitsToGuessShuffled[fruitsToGuessNumber], wordsGuessed: [], playerScore: totalWins)
-
+            currentGame = GuessingGame(wordToGuess: currentFruit, wordsGuessed: [], playerScore: totalWins)
+            
             // re-enable all the buttons
             imageButtonState(true)
             
@@ -87,11 +95,14 @@ class GameViewController: UIViewController {
     
     // function: update interface
     func updateUI() {
-        // update the word label
-//        wordToGuessLabel.text = currentGame.formattedWord
-        
+
         // show the current score
-        currentGameScoreLabel.text = "Current score:\n\(totalWins)"
+        currentGameScoreLabel.text = "Current score\n\(totalWins)"
+        
+        // debug: list outputs
+        print( fruitsToGuessShuffled )
+
+        
     }
 
     // function: update game state
@@ -99,7 +110,23 @@ class GameViewController: UIViewController {
 
         // guessed word match: win game
         if currentGame.wordToGuess == currentGame.formattedWord {
+            
+            // add to the current score
             totalWins += 1
+            
+            // increment the fruit array number
+            fruitsToGuessNumber += 1
+            
+            
+            //
+            //
+            //
+            // remove from array
+//            fruitsToGuessShuffled.remove(at: fruitsToGuessNumber)
+//            fruitsToGuessShuffled = fruitsToGuessShuffled.filter {$0 != currentGame.wordToGuess} // https://stackoverflow.com/a/24092728
+            //
+            //
+            //
 
         } else {
 

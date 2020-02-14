@@ -15,8 +15,12 @@ struct GuessingGame {
     var wordsGuessed: [String]
 	var playerScore: Int
 
+	// pass the guess button to the array
+	mutating func playerGuess( userGuessedWord: String ) {
+		wordsGuessed.append( userGuessedWord )
+	}
 
-	//
+	// if the guess is in the array
     var formattedWord: String {
 
 		// the guessed word
@@ -24,9 +28,8 @@ struct GuessingGame {
         
 		// if the word is in the guesses
 		if wordsGuessed.contains(wordToGuess) {
-                guessedWord += "\(wordToGuess)"
-        }
+            guessedWord += "\(wordToGuess)"
+		}
         return guessedWord
-		
     }
 }

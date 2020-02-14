@@ -20,7 +20,7 @@ func shuffleArray( stringArray:[String]) -> [String] {
     for _ in items.enumerated() {
     
         // choose random number
-        let rand = Int( arc4random_uniform( UInt32(items.count) ) )
+        let rand = Int( arc4random_uniform( UInt32( items.count ) ) )
         
         // using that random number, select a random item
         let randomItem = items[rand]
