@@ -145,11 +145,87 @@
                         <outletCollection property="buttonCollection" destination="UWg-ph-WAH" collectionClass="NSMutableArray" id="xJf-cB-rSP"/>
                         <outletCollection property="buttonCollection" destination="S4b-Wc-VNC" collectionClass="NSMutableArray" id="r0A-4o-VBr"/>
                         <outletCollection property="buttonCollection" destination="c9k-Pv-eIR" collectionClass="NSMutableArray" id="8GN-RP-jal"/>
+                        <segue destination="gXx-r2-veK" kind="presentation" identifier="GameOverSegue" id="Y57-69-oRf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="139"/>
+        </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="omg-39-QVX">
+            <objects>
+                <viewController storyboardIdentifier="GameOverStoryboard" id="gXx-r2-veK" customClass="GameOverViewController" customModule="mbPictureMatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VR4-Bl-tNT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="Wxb-nR-dzH">
+                                <rect key="frame" x="20" y="250" width="374" height="342"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="currentScoreSavedLabel 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwb-2N-Je7" userLabel="currentScoreSavedLabel">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="highScoreSavedLabel 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHj-tx-e7P" userLabel="highScoreSavedLabel">
+                                        <rect key="frame" x="0.0" y="141" width="374" height="41"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMD-Ke-6Hd">
+                                        <rect key="frame" x="0.0" y="282" width="374" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="MTm-iS-XxT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                        <color key="tintColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Play again">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playAgainButton:" destination="gXx-r2-veK" eventType="touchUpInside" id="sVr-tb-IZX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="specialOutcomeLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c4-du-9Zt">
+                                <rect key="frame" x="20" y="50" width="374" height="100"/>
+                                <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="gLM-ME-OoH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6c4-du-9Zt" firstAttribute="top" secondItem="bre-nh-82j" secondAttribute="top" constant="50" id="EAA-Oq-ARm"/>
+                            <constraint firstItem="Wxb-nR-dzH" firstAttribute="centerY" secondItem="VR4-Bl-tNT" secondAttribute="centerY" id="Lb9-c7-UfH"/>
+                            <constraint firstItem="6c4-du-9Zt" firstAttribute="leading" secondItem="bre-nh-82j" secondAttribute="leading" constant="20" id="n5c-lk-sTE"/>
+                            <constraint firstItem="Wxb-nR-dzH" firstAttribute="leading" secondItem="bre-nh-82j" secondAttribute="leading" constant="20" id="rGP-JN-18b"/>
+                            <constraint firstItem="bre-nh-82j" firstAttribute="trailing" secondItem="Wxb-nR-dzH" secondAttribute="trailing" constant="20" id="w0E-u8-UQ9"/>
+                            <constraint firstItem="bre-nh-82j" firstAttribute="trailing" secondItem="6c4-du-9Zt" secondAttribute="trailing" constant="20" id="zgY-2b-cju"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bre-nh-82j"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gwc-Dk-BYb"/>
+                    <connections>
+                        <outlet property="currentHighScoreLabel" destination="iHj-tx-e7P" id="pnX-tZ-owH"/>
+                        <outlet property="currentScoreSavedLabel" destination="pwb-2N-Je7" id="E8U-H8-FfH"/>
+                        <outlet property="specialOutcomeLabel" destination="6c4-du-9Zt" id="ggt-d9-h09"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xAm-RA-RZC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="931.88405797101461" y="138.61607142857142"/>
         </scene>
     </scenes>
     <resources>
