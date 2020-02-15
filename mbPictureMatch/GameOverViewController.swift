@@ -23,17 +23,12 @@ class GameOverViewController: UIViewController {
     // IB function
     @IBAction func playAgainButton(_ sender: Any) {
 
-        //
-        if let gameViewController = presentingViewController as? GameViewController {
-            gameViewController.totalButtonPresses = 0
-            gameViewController.totalWins = 0
-        }
-
         // close the modal
         dismiss(animated: true, completion: nil)
     }
-    
-    override func viewDidLoad() {
+	
+
+	override func viewDidLoad() {
         super.viewDidLoad()
 
         // update the labels

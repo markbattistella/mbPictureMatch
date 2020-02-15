@@ -136,7 +136,6 @@ class GameViewController: UIViewController {
 		
 		gameoverViewController.currentGameScore = currentGameScore
 		gameoverViewController.currentHighScore = currentHighScore
-
 	}
 
 }
