@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
     var fruitsToGuessNumber = 0
 	var totalButtonPresses = 0
 	var totalWins = 0
-    var highScore = 0
+//    var highScore = 0
 		
     
     // IB variable
@@ -48,6 +48,9 @@ class GameViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		// hide the high score IB as we cant figure out how to use it
+		highScoreLabel.isHidden = true
+		
 		// shuffle the fruit names
 		fruitsToGuessShuffled = shuffleArray(stringArray: fruitsToGuess)
 
@@ -80,7 +83,7 @@ class GameViewController: UIViewController {
 			currentGameScoreLabel.text = "Current score\n\(totalWins)"
 
 			// update the high score
-			highScoreUpdater()
+//			highScoreUpdater()
 
 		} else {
 
@@ -88,20 +91,20 @@ class GameViewController: UIViewController {
 			performSegue(withIdentifier: "GameOverSegue", sender: self)
 			
 			// update the high score
-			highScoreUpdater()
+//			highScoreUpdater()
 		}
     }
 	
 	// function:
-	func highScoreUpdater() {
+//	func highScoreUpdater() {
 		
-		if totalWins > highScore {
-			highScore = totalWins
-		}
+//		if totalWins > highScore {
+//			highScore = totalWins
+//		}
 
-		highScoreLabel.text = "High score\n\(highScore)"
+//		highScoreLabel.text = "High score\n\(highScore)"
 
-	}
+//	}
 	
 	// function: update the label
 	func fruitToGuessLabel() {
@@ -130,12 +133,12 @@ class GameViewController: UIViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let currentGameScore = totalWins
-		let currentHighScore = highScore
+//		let currentHighScore = highScore
 		
 		let gameoverViewController = segue.destination as! GameOverViewController
 		
 		gameoverViewController.currentGameScore = currentGameScore
-		gameoverViewController.currentHighScore = currentHighScore
+//		gameoverViewController.currentHighScore = currentHighScore
 	}
 
 }
