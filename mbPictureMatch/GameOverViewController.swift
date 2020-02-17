@@ -35,17 +35,17 @@ class GameOverViewController: UIViewController {
 		// if the score is equal
 		if currentGameScore == currentHighScore {
 			specialOutcomeLabel.text = "Game over\nYou matched the high score!"
-			currentHighScoreLabel.text = "The high score is\n\(currentHighScore)"
+			currentHighScoreLabel.text = "The high score is\n\(currentHighScore) correct"
 
 			// if the new score is the high score
 		} else if currentGameScore > currentHighScore {
 			specialOutcomeLabel.text = "Game over\nYou now have the high score!"
-			currentHighScoreLabel.text = "The high score was\n\(currentHighScore)"
+			currentHighScoreLabel.text = "The high score was\n\(currentHighScore) correct"
 
 			// if the user score was lower than the high score
 		} else {
 			specialOutcomeLabel.text = "Game over"
-			currentHighScoreLabel.text = "The high score is\n\(currentHighScore)"
+			currentHighScoreLabel.text = "The high score is\n\(currentHighScore) correct"
 		}
 	}
 }
