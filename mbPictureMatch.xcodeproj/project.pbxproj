@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		A35238EB23F5600100153244 /* ShuffleFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleFunction.swift; sourceTree = "<group>"; };
 		A375CAA823F684FA004E320A /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
-		A385A80E23F4F7D800FAE7C6 /* mbPictureMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mbPictureMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A385A80E23F4F7D800FAE7C6 /* Picture Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Picture Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A385A81123F4F7D800FAE7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A385A81323F4F7D800FAE7C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A385A81523F4F7D800FAE7C6 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -52,7 +52,7 @@
 		A385A80F23F4F7D800FAE7C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A385A80E23F4F7D800FAE7C6 /* mbPictureMatch.app */,
+				A385A80E23F4F7D800FAE7C6 /* Picture Match.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,7 +90,7 @@
 			);
 			name = mbPictureMatch;
 			productName = mbPictureMatch;
-			productReference = A385A80E23F4F7D800FAE7C6 /* mbPictureMatch.app */;
+			productReference = A385A80E23F4F7D800FAE7C6 /* Picture Match.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -300,7 +300,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.markbattistella.mbPictureMatch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Picture Match";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -318,7 +318,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.markbattistella.mbPictureMatch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Picture Match";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

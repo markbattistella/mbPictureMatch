@@ -9,109 +9,101 @@
 import UIKit
 
 class GameViewController: UIViewController {
-
-    // variables
-    var fruitsToGuess = ["Lemon", "Apple", "Orange", "Strawberry", "Grapes", "Cherry"]
-    var fruitsToGuessShuffled = [String]()
-    var fruitsToGuessNumber = 0
+	
+	// variables
+	var fruitsToGuess = ["Lemon", "Apple", "Orange", "Strawberry", "Grapes", "Cherry"]
+	var fruitsToGuessShuffled = [String]()
+	var fruitsToGuessNumber = 0
 	var totalButtonPresses = 0
 	var totalWins = 0
-//    var highScore = 0
+	var highScore = 0
+	
+	
+	// IB variable
+	@IBOutlet var currentGameScoreLabel: UILabel!
+	@IBOutlet var highScoreLabel: UILabel!
+	@IBOutlet var wordToGuessLabel: UILabel!
+	@IBOutlet var buttonCollection: [UIButton]!
+	
+	// IB function
+	@IBAction func buttonImagePressed(_ sender: UIButton) {
 		
-    
-    // IB variable
-    @IBOutlet var currentGameScoreLabel: UILabel!
-    @IBOutlet var highScoreLabel: UILabel!
-    @IBOutlet var wordToGuessLabel: UILabel!
-    @IBOutlet var buttonCollection: [UIButton]!
-
-    // IB function
-    @IBAction func buttonImagePressed(_ sender: UIButton) {
-        
-        // get the button title
-        let buttonImageTitle = sender.currentTitle!
+		// get the button title
+		let buttonImageTitle = sender.currentTitle!
 		
 		// check the button outcome and
 		// pass the button title to the function
 		buttonImageChecker(userGuessedWord: "\(buttonImageTitle)")
-
+		
 		// increment button counts
 		totalButtonPresses += 1
-
+		
 		// otherwise update the interface
 		updateUI()
 	}
-
-
-
+	
 	// did the view load
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		// hide the high score IB as we cant figure out how to use it
-		highScoreLabel.isHidden = true
 		
 		// shuffle the fruit names
 		fruitsToGuessShuffled = shuffleArray(stringArray: fruitsToGuess)
-
-        // initiate a new round
-        newRound()
-}
-
-
-
-    // function: new round
-    func newRound() {
-
+		
+		// initiate a new round
+		newRound()
+	}
+	
+	// function: new round
+	func newRound() {
+		
 		// update the label
 		fruitToGuessLabel()
-
+		
 		// update the UI
-        updateUI()
-    }
-    	
-    // function: update interface
-    func updateUI() {
+		updateUI()
+	}
+	
+	// function: update interface
+	func updateUI() {
 		
 		// if there are fruits remaining
 		if totalButtonPresses < fruitsToGuess.count {
-
+			
 			// update the label
 			fruitToGuessLabel()
-
+			
 			// show the current score
 			currentGameScoreLabel.text = "Current score\n\(totalWins)"
-
-			// update the high score
-//			highScoreUpdater()
-
+			
 		} else {
-
+			
 			// show the game over page
 			performSegue(withIdentifier: "GameOverSegue", sender: self)
 			
 			// update the high score
-//			highScoreUpdater()
+			highScoreUpdater()
+			
+			newGameReset()
 		}
-    }
+	}
 	
 	// function:
-//	func highScoreUpdater() {
+	func highScoreUpdater() {
 		
-//		if totalWins > highScore {
-//			highScore = totalWins
-//		}
-
-//		highScoreLabel.text = "High score\n\(highScore)"
-
-//	}
+		if totalWins > highScore {
+			highScore = totalWins
+		}
+		
+		highScoreLabel.text = "High score\n\(highScore)"
+		
+	}
 	
 	// function: update the label
 	func fruitToGuessLabel() {
-
+		
 		// add the fruit name to the label based off array key
 		let currentFruit = fruitsToGuessShuffled[fruitsToGuessNumber]
-
+		
 		// update the label
 		wordToGuessLabel.text = currentFruit
 	}
@@ -121,7 +113,7 @@ class GameViewController: UIViewController {
 		
 		// check if the passed string matches the question
 		if fruitsToGuessShuffled[fruitsToGuessNumber] == userGuessedWord {
-
+			
 			
 			// add to the current score
 			totalWins += 1
@@ -131,14 +123,32 @@ class GameViewController: UIViewController {
 		fruitsToGuessNumber += 1
 	}
 	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let currentGameScore = totalWins
-//		let currentHighScore = highScore
+	// function: reset the game stats for new games
+	func newGameReset() {
 		
+		// set the variables to 0
+		totalWins = 0
+		totalButtonPresses = 0
+		fruitsToGuessNumber = 0
+		
+		// reset the round
+		newRound()
+	}
+	
+	// prepare for the popover
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		// create the variables to pass through
+		let currentGameScore = totalWins
+		let currentHighScore = highScore
+		
+		// set the destination view controller
 		let gameoverViewController = segue.destination as! GameOverViewController
 		
+		// pass the variables
 		gameoverViewController.currentGameScore = currentGameScore
-//		gameoverViewController.currentHighScore = currentHighScore
+		gameoverViewController.currentHighScore = currentHighScore
+		
 	}
-
+	
 }

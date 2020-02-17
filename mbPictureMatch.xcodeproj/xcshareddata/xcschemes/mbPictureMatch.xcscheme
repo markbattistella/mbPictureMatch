@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A385A80D23F4F7D800FAE7C6"
-               BuildableName = "mbPictureMatch.app"
+               BuildableName = "Picture Match.app"
                BlueprintName = "mbPictureMatch"
                ReferencedContainer = "container:mbPictureMatch.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A385A80D23F4F7D800FAE7C6"
-            BuildableName = "mbPictureMatch.app"
+            BuildableName = "Picture Match.app"
             BlueprintName = "mbPictureMatch"
             ReferencedContainer = "container:mbPictureMatch.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A385A80D23F4F7D800FAE7C6"
-            BuildableName = "mbPictureMatch.app"
+            BuildableName = "Picture Match.app"
             BlueprintName = "mbPictureMatch"
             ReferencedContainer = "container:mbPictureMatch.xcodeproj">
          </BuildableReference>
