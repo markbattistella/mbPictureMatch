@@ -46,6 +46,9 @@ class GameViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		// set the high score label
+		highScoreLabel.text = "High score\n\(highScore)"
+		
 		// shuffle the fruit names
 		fruitsToGuessShuffled = shuffleArray(stringArray: fruitsToGuess)
 		
